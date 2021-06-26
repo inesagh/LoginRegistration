@@ -1,18 +1,23 @@
 package com.loginregistration;
 
+import org.mindrot.jbcrypt.BCrypt;
+
 public class Person {
     private String name;
     private String surname;
     private String email;
     private String username;
     private String password;
+    private String salt = BCrypt.gensalt();
+    private String role;
 
-    public Person(String name, String surname, String email, String username, String password) {
+    public Person(String name, String surname, String email, String username, String password, String role) {
         this.name = name;
         this.surname = surname;
         this.email = email;
         this.username = username;
-        this.password = password;
+        this.password = BCrypt.hashpw(password, salt);
+        this.role = role;
     }
 
     public String getName() {
@@ -52,7 +57,15 @@ public class Person {
     }
 
     public void setPassword(String password) {
-        this.password = password;
+        this.password = BCrypt.hashpw(password, salt);
+    }
+
+    public String getRole() {
+        return role;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
     }
 
     @Override
@@ -63,6 +76,8 @@ public class Person {
                 ", email='" + email + '\'' +
                 ", username='" + username + '\'' +
                 ", password='" + password + '\'' +
+                ", salt='" + salt + '\'' +
+                ", role='" + role + '\'' +
                 '}';
     }
 }
