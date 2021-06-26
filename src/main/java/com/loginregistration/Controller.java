@@ -63,19 +63,19 @@ public class Controller {
         System.out.println("Enter surname: ");
         String surname = scanner.nextLine();
         System.out.println("Enter email: ");
-        String email = scanner.nextLine();
-        System.out.println("Enter username: ");
-        String username = scanner.nextLine();
-        System.out.println("Enter password: ");
-        String password = "";
+        String email = "";
         while(true){
-            password = scanner.nextLine();
-            if(password.contains("@")){
+            email = scanner.nextLine();
+            if(email.contains("@")){
                 break;
             }else{
                 System.out.println("Please enter valid email address.");
             }
         }
+        System.out.println("Enter username: ");
+        String username = scanner.nextLine();
+        System.out.println("Enter password: ");
+        String password = scanner.nextLine();
         System.out.println("Enter role: ");
         String role = "";
         while(true){
