@@ -9,7 +9,7 @@ import java.util.Scanner;
 public class DAO {
     static String DB_PATH = "jdbc:mariadb://localhost:3306/login_registration";
     static String USER = "root";
-    static String PASS = "chemasi";
+    static String PASS = "?????";
     static Person user = null;
     static int idOfLoggedIn = 0;
     Faker faker = new Faker();
